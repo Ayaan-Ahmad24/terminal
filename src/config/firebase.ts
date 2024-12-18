@@ -4,12 +4,12 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyC7ltaIOO-ZxNf65KX4Cb4uFxGpsHU-pD8",
+  authDomain: "https://pdf-app-65a58.firebaseapp.com/",
+  projectId: "pdf-app-65a58",
+  // storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "1094167268194",
+  appId: "1:1094167268194:android:6219209b6549c71ef7fa3b"
 };
 
 // Initialize Firebase

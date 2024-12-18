@@ -1,34 +1,53 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useTheme } from '../context/ThemeContext';
 
 interface CourseCardProps {
   title: string;
+  description: string;
+  image: string;
   onPress: () => void;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ title, onPress }) => {
+const CourseCard: React.FC<CourseCardProps> = ({ title, description, image, onPress }) => {
+  const { theme } = useTheme();
+
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Text style={styles.title}>{title}</Text>
+    <TouchableOpacity 
+      style={[styles.card, { backgroundColor: theme === 'light' ? '#FFFFFF' : '#374151' }]} 
+      onPress={onPress}
+    >
+      <Image source={{ uri: image }} style={styles.image} />
+      <View style={styles.content}>
+        <Text style={[styles.title, { color: theme === 'light' ? '#111827' : '#F9FAFB' }]}>{title}</Text>
+        <Text style={[styles.description, { color: theme === 'light' ? '#4B5563' : '#D1D5DB' }]}>{description}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: 'white',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    borderRadius: 10,
+    marginBottom: 20,
+    overflow: 'hidden',
     elevation: 3,
+  },
+  image: {
+    width: '100%',
+    height: 150,
+  },
+  content: {
+    padding: 15,
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Poppins_600SemiBold',
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 14,
+    fontFamily: 'Poppins_400Regular',
   },
 });
 
